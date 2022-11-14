@@ -40,13 +40,19 @@ st.caption("Here is the data summarized by breed")
 
 #### Barchart - Bite Incidents by Breed ####
 
+st.subheader('Bite Incidents by Breed')
+
 st.area_chart(breed_count)
 
-st.caption("Here is a graphical representation of bite incident by breed according to the dataset")
+st.caption("Here is a simple bar graph representation of bite incident by breed according to the dataset")
 
 
 #### Line Chart - Bite Incidents over time ####
 
+st.subheader('Bite Incidents From 2015 to 2017')
+
 over_time = df['DateOfBite'].value_counts()
 
 st.line_chart(over_time)
+
+st.caption("Here is a line chart displaying bite incidents over time")
