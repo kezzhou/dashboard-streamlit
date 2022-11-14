@@ -5,7 +5,7 @@ import streamlit as st
 
 #### First Dataframe - Head 100 ####
 
-df = pd.read_csv('https://health.data.ny.gov/api/views/gnzp-ekau/rows.csv?accessType=DOWNLOAD')
+df = pd.read_csv('data_sparcs.csv')
 
 df = df.head(100)
 
@@ -31,6 +31,8 @@ if st.checkbox('Show first 100 records of SPARCS 2016'):
 st.code(code, language='python')
 
 #### Second Dataframe ####
+
+df = pd.read_csv('data_sparcs.csv')
 
 df2 = df[["Total Charges", "Total Costs"]]
 
