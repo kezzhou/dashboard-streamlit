@@ -47,6 +47,6 @@ st.caption("Here is a graphical representation of bite incident by breed accordi
 
 #### Line Chart - Bite Incidents over time ####
 
-## over_time = df[["DateofBite", ""]]
+over_time = df['DateOfBite'].value_counts()
 
-st.line_chart(df)
+st.line_chart(over_time)
