@@ -5,16 +5,15 @@ import streamlit as st
 
 #### First Dataframe - Head 100 ####
 
-df = pd.read_csv('data_sparcs.csv')
+df = pd.read_csv('DOHMH_Dog_Bite_Data.csv')
 
 df = df.head(100)
 
-df
-
 #### Header ####
 
-if st.checkbox('Show first 100 records of SPARCS 2016'):
-    st.header('Hospital Inpatient Discharges (SPARCS De-Identified): 2016')
+st.header('Dog Bite Incidents: 2015 to 2017')
+
+if st.checkbox('Show first 100 records of DOHMH Dog Bite Dataset'):
     st.dataframe(df)
 
 
@@ -25,29 +24,29 @@ st.caption('The Statewide Planning and Research Cooperative System (SPARCS) Inpa
 #### Code Block ####
 
 code = '''## Wondering how we included the toggle feature?
-if st.checkbox('Show first 100 records of SPARCS 2016'):
-    st.header('Hospital Inpatient Discharges (SPARCS De-Identified): 2016')
+if st.checkbox('Show first 100 records of DOHMH Dog Bite Dataset'):
     st.dataframe(df)'''
 st.code(code, language='python')
 
 #### Second Dataframe ####
 
-df = pd.read_csv('data_sparcs.csv')
+df = pd.read_csv('DOHMH_Dog_Bite_Data.csv')
 
-df2 = df[["Total Charges", "Total Costs"]]
+breed_count = df['Breed'].value_counts()
 
-df2
+breed_count
 
-st.dataframe(df2)
+st.caption("Here is the data summarized by breed")
 
-#### Barchart - Race ####
+#### Barchart - Bite Incidents by Breed ####
 
-df3 = df["Race"]
+st.area_chart(breed_count)
 
-st.area_chart(df3)
+st.caption("Here is a graphical representation of bite incident by breed according to the dataset")
 
-#### Line Chart - Race and Total Costs ####
 
-df4 = df[["Race", "Total Costs"]]
+#### Line Chart - Bite Incidents over time ####
 
-st.line_chart(df4)
+## over_time = df[["DateofBite", ""]]
+
+st.line_chart(df)
