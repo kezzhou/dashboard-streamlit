@@ -13,13 +13,14 @@ df = df.head(100)
 
 st.header('Dog Bite Incidents: 2015 to 2017')
 
-if st.checkbox('Show first 100 records of DOHMH Dog Bite Dataset'):
-    st.dataframe(df)
-
-
 #### Caption ####
 
 st.caption('The Statewide Planning and Research Cooperative System (SPARCS) Inpatient De-identified File contains discharge level detail on patient characteristics, diagnoses, treatments, services, and charges. This data file contains basic record level detail for the discharge. The de-identified data file does not contain data that is protected health information (PHI) under HIPAA. The health information is not individually identifiable; all data elements considered identifiable have been redacted. For example, the direct identifiers regarding a date have the day and month portion of the date removed.')
+
+#### Toggle ####
+
+if st.checkbox('Show first 100 records of DOHMH Dog Bite Dataset'):
+    st.dataframe(df)
 
 #### Code Block ####
 
@@ -29,6 +30,8 @@ if st.checkbox('Show first 100 records of DOHMH Dog Bite Dataset'):
 st.code(code, language='python')
 
 #### Second Dataframe ####
+
+st.subheader('Breed Count')
 
 df = pd.read_csv('DOHMH_Dog_Bite_Data.csv')
 
